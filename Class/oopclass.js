@@ -131,12 +131,13 @@ class  PhysicalProducts{
     }
 }
 
-class DigitalDownloads{
+class DigitalDownloads extends PhysicalProducts {
     constructor(cryptocurrency, MobileBanking){
+        super(Computer, TV);
         this.cryptocurrency = cryptocurrency;
         this.MobileBanking = MobileBanking;
     }
 }
 
 const myDisitalProduts = new DigitalDownloads ("bitconins", "Bkash Amount");
-console.log(myDisitalProduts);
+console.log(myDisitalProduts.products());
