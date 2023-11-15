@@ -344,32 +344,144 @@ console.log(cetagoryWithGroup3);
 
 
 // Task 19: Count the instances of specific properties in an array of objects using the reduce method.
-const votes = [
+const votesReport = [
     {
         candidate: "nizam uddin",
-        vote: 23996
+        candidateVote: 23996
     },
     {
         candidate: "Obaydul qader",
-        vote: 5000
+        candidateVote: 5000
     },
     {
         candidate: "Shahab uddin",
-        vote: 12000
+        candidateVote: 12000
     },
     {
         candidate: "Andalib",
-        vote: 29796
+        candidateVote: 29796
     },
     {
         candidate: "Atik",
-        vote: 13596
+        candidateVote: 13596
     },
 ];
-const countingVote = votes.reduce((acc, crnt)=>{
-    console.log(acc.vote);
-    // if(crnt.vote >= acc.vote){
-    //     return acc;
-    // }
-},{})
-console.log(countingVote);
+const countingVotes = votesReport.reduce((acc, crnt)=>{
+    if(crnt.candidateVote >= crnt.candidateVote){
+        return acc;
+    }
+},[])
+console.log(countingVotes); // for review...
+
+
+
+// Task 20: Implement filtering logic using the reduce method.
+const stockProducts = [
+    {
+        name: "PC",
+        price: 34545,
+        inStock: true
+    },
+    {
+        name: "One+",
+        price: 34045,
+        inStock: true
+    },
+    {
+        name: "Samsung A51",
+        price: 34445,
+        inStock: false
+    },
+    {
+        name: "IPhone 13",
+        price: 34543,
+        inStock: false
+    },
+    {
+        name: "Realme",
+        price: 23333,
+        inStock: true
+    },
+    {
+        name: "Samsung note 20",
+        price: 74545,
+        inStock: false
+    },
+]
+const inStocks = stockProducts.reduce((acc, current)=>{
+    if(current.inStock){
+        acc.push(current)
+    }
+    return acc;
+},[])
+console.log(inStocks);
+
+
+// Task 21: Concatenate values of a specific property in an array of objects using the reduce method.
+const comments = [
+    {
+        auther: "Rashed Abdullah",
+        content: "The reality of humanity",
+        comment: "the book is good"
+    },
+    {
+        auther: "Rakib khan",
+        content: "Muslim's right",
+        comment: "it was a big and nice book"
+    },
+    {
+        auther: "Ridwan kahn",
+        content: "Broken mind",
+        comment: "it's a uniqe book"
+    },
+]
+
+const allCommentInOneString = comments.reduce((acc,crnt)=>{
+    acc += crnt.comment;
+    return acc;
+
+},"")
+console.log(allCommentInOneString);
+
+
+
+
+// Task 22: Calculate the average rating from an array of objects using the reduce method.
+const bookReviews = [
+    {
+        auther: "Rashed Abdullah",
+        content: "The reality of humanity",
+        review: 4
+    },
+    {
+        auther: "Rakib khan",
+        content: "Muslim's right",
+        review: 2
+    },
+    {
+        auther: "Ridwan kahn",
+        content: "Broken mind",
+        review: 4
+    },
+    {
+        auther: "Rashed Abdullah",
+        content: "The reality of humanity",
+        review: 3
+    },
+    {
+        auther: "Rakib khan",
+        content: "Muslim's right",
+        review: 1
+    },
+    {
+        auther: "Ridwan kahn",
+        content: "Broken mind",
+        review: 3
+    },
+]
+
+const averageRiview = bookReviews.reduce((acc, crnt)=>{
+    acc += crnt.review / bookReviews.length;
+    return acc;
+}, 0)
+console.log(averageRiview);
